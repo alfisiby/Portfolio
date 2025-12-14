@@ -719,6 +719,234 @@
             opacity: 0;
             transform: translateY(-32px);
         }
+
+        /* --- MODAL STYLES --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px 0;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--white-bg);
+            margin: 40px auto;
+            padding: 0;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 82, 255, 0.25);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            color: var(--black);
+            background: var(--gray-100);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .close-modal:hover {
+            background: var(--gray-200);
+            transform: scale(1.1);
+        }
+
+        .modal-header {
+            padding: 60px 40px 30px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            color: var(--black);
+        }
+
+        .modal-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .modal-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--black);
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .case-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .detail-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--black);
+            border-left: 3px solid var(--coinbase-blue);
+            padding-left: 12px;
+            margin-top: 30px;
+        }
+
+        .detail-section h4:first-child {
+            margin-top: 0;
+        }
+
+        .detail-text {
+            color: var(--gray-700);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .case-highlight-box {
+            background: rgba(0, 82, 255, 0.05);
+            border-left: 4px solid var(--coinbase-blue);
+            padding: 24px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .case-highlight-box h5 {
+            color: var(--coinbase-blue);
+            margin-bottom: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .metrics-grid-modal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .metric-card-modal {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 82, 255, 0.05);
+        }
+
+        .metric-card-modal .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-card-modal .label {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        .modal-cta-btn {
+            display: inline-block;
+            background: var(--coinbase-blue);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 82, 255, 0.4);
+            margin-top: 24px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-cta-btn:hover {
+            transform: translateY(-2px);
+            background: #0071e3;
+            box-shadow: 0 6px 24px rgba(0, 82, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .modal-header, .modal-body {
+                padding: 24px;
+            }
+
+            .close-modal {
+                top: 12px;
+                right: 12px;
+                width: 32px;
+                height: 32px;
+                font-size: 20px;
+            }
+
+            .metrics-grid-modal {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .modal-header {
+                padding: 40px 24px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -739,11 +967,11 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="profile-container">
-                <img src="alfi.jpeg" alt="Profile" class="profile-image">
+                <img src="alfi.png" alt="Profile" class="profile-image">
             </div>
             <h1 class="hero-title">Alfi Siby</h1>
-            <p class="hero-subtitle">Product Builder & Creative Problem Solver</p>
-            <p class="hero-description">Passionate about building products that solve real problems for users. My focus is to deeply understanding people and delivering creative, meaningful solutions.</p>
+            <p class="hero-subtitle">Product Marketer & Creative Problem Solver</p>
+            <p class="hero-description">Passionate about building & scaling products that solve real problems for users. My focus is to deeply understanding people and delivering creative, meaningful solutions.</p>
         </div>
     </section>
 
@@ -753,25 +981,25 @@
         <div class="about-grid">
             <div class="about-card glass">
                 <h3>Who I Am</h3>
-                <p>I’m a Product Manager and recent computer science graduate who loves building things that make life easier for others. I enjoy working with teams, learning from feedback, and turning ideas into products people actually want to use.</p>
+                <p>I am a Product Marketer and Growth Specialist with a background in Computer Science. I bridge the gap between engineering and the market, translating complex technical features into high-conversion narratives that drive real business adoption.</p>
             </div>
             <div class="about-card glass">
                 <h3>What I Do</h3>
-                <p>I focus on understanding users, designing simple solutions, and making sure every detail works smoothly. From leading user research to designing in Figma and helping build MVPs, I do my best to make products that are both useful and enjoyable.</p>
+                <p>I lead Go-To-Market (GTM) strategies and organic user acquisition. From conducting deep user discovery interviews to executing zero-budget product launches, I focus on building growth loops that turn passive visitors into retained power users.</p>
             </div>
             <div class="about-card glass">
                 <h3>My Approach</h3>
-                <p>I believe in listening first, working together, and solving problems with a mix of creativity and clear thinking. I like to keep things straightforward, stay open to new ideas, and help everyone do their best work.</p>
+                <p>I combine the "science" of funnel analysis (AARRR) with the "art" of storytelling. I believe in data-backed creativity—using rapid experimentation and GenAI workflows to validate markets, reduce customer acquisition costs, and scale revenue efficiently.</p>
             </div>
         </div>
         
         <div class="skills-grid">
-            <div class="skill-badge glass">Miro</div>
-            <div class="skill-badge glass">UI/UX</div>
+            <div class="skill-badge glass">Data Analysis</div>
+            <div class="skill-badge glass">UX/UI</div>
             <div class="skill-badge glass">Research</div>
-            <div class="skill-badge glass">Figma</div>
+            <div class="skill-badge glass">Go-To-Market</div>
             <div class="skill-badge glass">Agile</div>
-            <div class="skill-badge glass">Wireframing</div>
+            <div class="skill-badge glass">SQL</div>
             <div class="skill-badge glass">Roadmapping</div>
             <div class="skill-badge glass">Strategy</div>
         </div>
@@ -795,22 +1023,39 @@
                 <div class="project-image"><img src="Swiggy.svg" alt="Project image"></div>
                 <div class="project-content">
                     <h3 class="project-title">Swiggy Case Study</h3>
-                    <p class="project-description">Product case study tackling Swiggy’s user churn with a transparent, time-bound complaint resolution feature.</p>
+                    <p class="project-description">Product case study tackling Swiggy's user churn with a transparent, time-bound complaint resolution feature.</p>
                 </div>
             </div>
 
-            <div class="project-card" onclick="window.open('https://drive.google.com/file/d/1tHXFkAyImWQWnMy3H7cUDFTDsJTRy5GQ/view?usp=drive_link')">
+            <div class="project-card" onclick="openModal('heywork-modal')">
                 <div class="project-image"><img src="heywork.svg" alt="Project image"></div>
                 <div class="project-content">
-                    <h3 class="project-title">Heywork: Blue-Collar Hiring App</h3>
-                    <p class="project-description">Built and shipped a dual-sided platform for SMBs and job seekers, validated by 130+ user interviews and rapid MVP launch.</p>
+                    <h3 class="project-title">Heywork: Zero to 400 Users</h3>
+                    <p class="project-description">Bootstrapped a blue-collar hiring platform with zero marketing budget. 62% acquisition from 1 viral video, ₹0 CAC.</p>
                 </div>
             </div>
-            <div class="project-card" onclick="window.open('https://drive.google.com/drive/folders/1pBLZ8hcbCo3gOmDRboLaLqmTKRMgDHKd?usp=drive_link')">
-                <div class="project-image"><img src="clubly.svg" alt="Project image"></div>
+
+            <div class="project-card" onclick="openModal('birdbox-modal')">
+                <div class="project-image"><img src="birdbox.svg" alt="Project image"></div>
                 <div class="project-content">
-                    <h3 class="project-title">Clubly: Community Discovery App</h3>
-                    <p class="project-description">Created BRD, PRD, and wireframes for a mobile-first platform connecting urban Indians with local interest-based communities.</p>
+                    <h3 class="project-title">Birdbox NYC: The Viral Launch</h3>
+                    <p class="project-description">Launched a premium $19 sandwich in NYC using shock value. 100% sell-out for 3 months, 6,400% Instagram growth.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('windchasers-modal')">
+                <div class="project-image"><img src="windchasers.svg" alt="Project image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Wind Chasers: High-Ticket Lead Gen</h3>
+                    <p class="project-description">Generated 7,000+ leads for ₹2.5L pilot training program. Shifted from selling courses to selling careers.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openModal('11point-modal')">
+                <div class="project-image"><img src="11pointclub.svg" alt="Project image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">11 Point Club: Filling Inventory</h3>
+                    <p class="project-description">Launched India's largest Pickleball facility with 100% opening weekend occupancy through innovative Group Play feature.</p>
                 </div>
             </div>
         </div>
@@ -828,20 +1073,14 @@
 
                 <span class="contact-label">Email</span>
             </a>
-            <a href="www.linkedin.com/in/alfi-siby/" target="_blank" class="contact-item">
+            <a href="https://www.linkedin.com/in/alfi-siby/" target="_blank" class="contact-item">
                <span class="contact-icon">
                 <i class="fab fa-linkedin-in"></i>
                 </span>
 
                 <span class="contact-label">LinkedIn</span>
             </a>
-            <a href="https://drive.google.com/file/d/1Ylb17c02gMiyBWYPB11IZHmbx1hs6JBV/view?usp=sharing" target="_blank" class="contact-item">
-                <span class="contact-icon">
-                <i class="fas fa-file"></i>
-                </span>
-
-                <span class="contact-label">Resume</span>
-            </a>
+            
             <a href="https://wa.me/+916235186956" target="_blank" class="contact-item">
                <span class="contact-icon">
                 <i class="fab fa-whatsapp"></i>
@@ -1043,12 +1282,213 @@
         updateNavigation();
 
         // Bidirectional Scroll Animations
+
+        // Modal Logic for Case Studies
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => modal.classList.add('show'), 10);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        }
+
+        // Close modal if clicked outside content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                const modalId = event.target.id;
+                closeModal(modalId);
+            }
+        }
     </script>
+
+    <!-- MODALS FOR NEW CASE STUDIES -->
+
+    <!-- HEYWORK MODAL -->
+    <div id="heywork-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal" onclick="closeModal('heywork-modal')">&times;</span>
+            <div class="modal-header">
+                <span class="modal-tag">Founder & Growth Lead</span>
+                <h2 class="modal-title">Heywork: Building Trust in a Low-Trust Market</h2>
+                <p class="modal-subtitle">Bootstrapped from Idea to 400 Users with Zero Marketing Budget.</p>
+            </div>
+            <div class="modal-body">
+                <div class="metrics-grid-modal">
+                    <div class="metric-card-modal glass">
+                        <span class="number">62%</span>
+                        <span class="label">Acquisition from 1 Viral Video</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">₹0</span>
+                        <span class="label">Acquisition Cost (Organic)</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">90%</span>
+                        <span class="label">Job Completion Rate</span>
+                    </div>
+                </div>
+
+                <div class="case-detail-grid">
+                    <div class="detail-section">
+                        <h4>The Situation</h4>
+                        <p class="detail-text">The blue-collar hiring market in India is broken. Middlemen steal 10-15% of wages, and existing platforms are flooded with scams. <strong>The problem wasn't "Jobs"—it was "Trust."</strong> We had limited funds. Most capital went into tech (app development). I had exactly <strong>₹0 for marketing</strong>.</p>
+
+                        <h4>The "Pain-Point" Strategy</h4>
+                        <p class="detail-text">Since paid ads were impossible, I had to rely on organic reach. I realized generic "Hire Now" posts were invisible. I shifted to a <strong>"Problem-First"</strong> strategy.</p>
+                        <p class="detail-text">I created a hyper-realistic AI video depicting the life of a Kerala restaurant owner facing labor shortages—the headache of managing everything alone. Instead of selling an "App," I sold "Peace of Mind." The video ended with the owner relaxing while Heywork-hired staff managed the floor.</p>
+
+                        <div class="case-highlight-box">
+                            <h5>The Result</h5>
+                            <p class="detail-text">This single video blew up. It drove <strong>250+ signups</strong> instantly. Crucially, 90% of the hirers who signed up were from the exact industry (Restaurants) we targeted in the video.</p>
+                        </div>
+
+                        <h4>Validation & Product</h4>
+                        <p class="detail-text">To validate the market before building, I conducted <strong>130+ interviews</strong> with workers and employers. We proved that even with a zero-budget MVP, if the "Trust" problem is solved, the market is ready. We achieved a <strong>90% Completion Rate</strong> (90% of posted jobs got filled), proving strong Product-Market Fit.</p>
+
+                        <a href="https://drive.google.com/file/d/1tHXFkAyImWQWnMy3H7cUDFTDsJTRy5GQ/view?usp=drive_link" target="_blank" class="modal-cta-btn">View Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BIRDBOX MODAL -->
+    <div id="birdbox-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal" onclick="closeModal('birdbox-modal')">&times;</span>
+            <div class="modal-header">
+                <span class="modal-tag">International GTM Strategy</span>
+                <h2 class="modal-title">Birdbox NYC: Selling a $19 Sandwich via "Shock Value"</h2>
+                <p class="modal-subtitle">Orchestrating a viral launch for a premium food brand in a crowded market.</p>
+            </div>
+            <div class="modal-body">
+                <div class="metrics-grid-modal">
+                    <div class="metric-card-modal glass">
+                        <span class="number">100%</span>
+                        <span class="label">Sell-Out for 3 Months</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">6,400%</span>
+                        <span class="label">IG Growth (400 -> 26k)</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">$19</span>
+                        <span class="label">Premium Price Point Validated</span>
+                    </div>
+                </div>
+
+                <div class="case-detail-grid">
+                    <div class="detail-section">
+                        <h4>The Challenge</h4>
+                        <p class="detail-text">Birdbox (from San Francisco) was launching in New York City. <strong>The Hurdle:</strong> They were selling "Claude the Claw"—a fried chicken sandwich with the actual <strong>chicken foot and claw still attached</strong>. Price: $19 (approx ₹1600). How do you get people to pay premium prices for something that looks terrifying?</p>
+
+                        <h4>Strategy: "Disgust to Desire"</h4>
+                        <p class="detail-text">We knew the product was polarizing. Instead of hiding the claw, we made it the hero.</p>
+                        <p class="detail-text"><strong>Phase 1: The "WTF" Phase (Awareness)</strong><br>We flooded social media with high-definition visuals of the Claw. People reacted with shock, disgust, and curiosity. <em>"Is that real?" "Who eats that?"</em> This generated massive organic engagement. The goal was simply: <strong>Be Unforgettable.</strong></p>
+                        <p class="detail-text"><strong>Phase 2: The "Story" Phase (Conversion)</strong><br>Once we had attention, we dropped the narrative. The "Claw" wasn't a gimmick; it was proof of <strong>Ethical Sourcing</strong>. It proved the bird was whole, organic, and head-to-toe fresh—unlike processed nuggets. This flipped the narrative. Eating "Claude" became a flex. It signaled you cared about quality (and were brave enough to try it).</p>
+
+                        <div class="case-highlight-box">
+                            <h5>Launch Day Impact</h5>
+                            <p class="detail-text">The "Shock + Story" combo worked. We didn't just get customers; we got fans. On launch day, the queue wrapped around the block in NYC. The store sold out completely for 90 days straight.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WIND CHASERS MODAL -->
+    <div id="windchasers-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal" onclick="closeModal('windchasers-modal')">&times;</span>
+            <div class="modal-header">
+                <span class="modal-tag">High-Ticket Lead Gen</span>
+                <h2 class="modal-title">Wind Chasers: Shifting from "Courses" to "Careers"</h2>
+                <p class="modal-subtitle">Generating 7,000+ leads for a ₹2.5 Lakh Pilot Training Program.</p>
+            </div>
+            <div class="modal-body">
+                <div class="metrics-grid-modal">
+                    <div class="metric-card-modal glass">
+                        <span class="number">7,000+</span>
+                        <span class="label">Total Leads Generated</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">70%</span>
+                        <span class="label">Increase in Campus Visits</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">10+</span>
+                        <span class="label">Immediate Enrollments (₹25L Revenue)</span>
+                    </div>
+                </div>
+
+                <div class="case-detail-grid">
+                    <div class="detail-section">
+                        <h4>The Challenge</h4>
+                        <p class="detail-text">The client was running generic "Enroll Now" ads featuring stock footage of planes. <strong>The problem:</strong> Every competitor was doing the same. Leads were expensive and low quality because students didn't trust a generic-looking academy with their career.</p>
+
+                        <h4>The "Realism" Pivot</h4>
+                        <p class="detail-text">I realized that for a high-stakes decision like Pilot Training, <strong>Social Proof</strong> is everything.</p>
+                        <p class="detail-text"><strong>Strategy 1: The "Hero" Student</strong><br>We stopped using models. We found a real student who was doing well and filmed a documentary-style ad about his life. No stock footage. Just him, the cockpit, and his dream. This authenticity drastically lowered our Lead Cost.</p>
+                        <p class="detail-text"><strong>Strategy 2: The "Founder Story"</strong><br>The academy was founded because the founder's mother wanted her daughter to be a pilot but couldn't find a good school. We told this origin story. It humanized the brand and built massive trust with parents (the decision-makers).</p>
+
+                        <h4>Growth Tactics</h4>
+                        <p class="detail-text">To capture intent, we launched "Open House" events and Webinars. Instead of asking for a ₹2.5L sale online, we asked for a "Campus Visit." This micro-conversion strategy filled the funnel, leading to a sold-out DGCA ground class batch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11 POINT CLUB MODAL -->
+    <div id="11point-modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-modal" onclick="closeModal('11point-modal')">&times;</span>
+            <div class="modal-header">
+                <span class="modal-tag">Hyper-Local Launch</span>
+                <h2 class="modal-title">11 Point Club: Solving the "I have no one to play with" Problem</h2>
+                <p class="modal-subtitle">Achieving 100% Occupancy for India's Largest Pickleball Facility.</p>
+            </div>
+            <div class="modal-body">
+                <div class="metrics-grid-modal">
+                    <div class="metric-card-modal glass">
+                        <span class="number">100%</span>
+                        <span class="label">Opening Weekend Occupancy</span>
+                    </div>
+                    <div class="metric-card-modal glass">
+                        <span class="number">Zero to Full</span>
+                        <span class="label">Launch Velocity</span>
+                    </div>
+                </div>
+
+                <div class="case-detail-grid">
+                    <div class="detail-section">
+                        <h4>The Challenge</h4>
+                        <p class="detail-text">Launching a niche sport (Pickleball) in Bangalore. <strong>The Barrier:</strong> Pickleball requires 2-4 players. Most people wanted to play but didn't have a team. If we only rented courts to "teams," we would lose 80% of our potential customers (individuals).</p>
+
+                        <h4>The "Group Play" Innovation</h4>
+                        <p class="detail-text">We launched a feature called <strong>"Group Play"</strong> (Join a Game). Instead of booking a court, an individual could pay a small fee to join a "Open Slot." We matched them with strangers.</p>
+                        <p class="detail-text"><strong>Why this worked:</strong> It solved the "Player Liquidity" problem. Individuals could show up alone and still play. This maximized our court utilization rates during off-peak hours.</p>
+
+                        <h4>Guerrilla Marketing</h4>
+                        <p class="detail-text">Since this was a hyper-local business (people won't travel 20km for pickleball), digital ads weren't enough. We hit the streets. We handed out paddles to random pedestrians and challenged them to 60-second games. We filmed these interactions. The content was raw, fun, and local. It created a "FOMO" effect in the neighborhood before we even opened the doors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
-
-
-
-
-
-
